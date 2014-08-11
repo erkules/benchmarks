@@ -12,7 +12,7 @@
       ignore_errors: true
 
     - name:    Start initial Node {{ leader }}
-      service: name=mysql state=started arguments="--wsrep-cluster-address=gcomm://"
+      service: name=mysql state=started arguments="--wsrep-new-cluster"
       when:    leader is defined
 
 
