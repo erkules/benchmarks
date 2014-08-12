@@ -20,7 +20,7 @@
     - name:     Ensure rights for the init file
       file:     path=/etc/mysql/init mode=444
     - name:     my.cnf template for *all* galera nodes!
-      action:   template src=templates/my.cnf.j2 dest=/etc/mysql/my.cnf
+      template: src=templates/my.cnf.j2 dest=/etc/mysql/my.cnf
     - name:     Ensure rights for the mc.cnf (not needed as read by root)
       file:     path=/etc/mysql/my.cnf mode=444
     - name:     Copy Userconfig
