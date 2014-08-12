@@ -16,13 +16,9 @@
     - name:     Make sure /etc/mysql/conf.d is a directory
       file:     path=/etc/mysql/conf.d state=directory 
     - name:     Copy init file
-      template: src=templates/init.j2 dest=/etc/mysql/init
-    - name:     Ensure rights for the init file
-      file:     path=/etc/mysql/init mode=444
+      template: src=templates/init.j2 dest=/etc/mysql/init owner=mysql group=mysql mode=0440
     - name:     my.cnf template for *all* galera nodes!
-      template: src=templates/my.cnf.j2 dest=/etc/mysql/my.cnf
-    - name:     Ensure rights for the mc.cnf (not needed as read by root)
-      file:     path=/etc/mysql/my.cnf mode=444
+      template: src=templates/my.cnf.j2 dest=/etc/mysql/my.cnf mode=444
     - name:     Copy Userconfig
       copy:     src={{ item }} dest=/etc/mysql/conf.d mode=444
       with_fileglob: 
