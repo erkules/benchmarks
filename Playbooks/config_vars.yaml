@@ -5,6 +5,7 @@ provider: codership
 # galera
 gcomm: 
 galerapath: /usr/lib64/galera/libgalera_smm.so
+cluster_name: hallowelt
 
 # Credentials
 root_user:          admin
